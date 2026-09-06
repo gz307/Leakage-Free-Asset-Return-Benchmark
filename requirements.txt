@@ -1,0 +1,9 @@
+torch==2.1.2
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+optuna
+tqdm
+einops

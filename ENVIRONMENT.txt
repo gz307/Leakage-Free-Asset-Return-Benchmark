@@ -1,0 +1,14 @@
+Computing environment used for the reported experiments
+=========================================================
+Platform: AutoDL cloud instance
+Operating system: Ubuntu 22.04
+Python: 3.10
+PyTorch: 2.1.2
+CUDA: 11.8
+GPU: 1 x NVIDIA GeForce RTX 4090D (24 GB)
+CPU: 15 vCPU, Intel(R) Xeon(R) Platinum 8474C
+System memory: 80 GB
+Random seed: 42
+
+The project code also supports overriding the automatically resolved project root via the
+STOCK_EMH_PROJECT_ROOT environment variable.
