@@ -102,3 +102,40 @@ If using the third-party architectures, please cite their original publications 
 ## License and third-party code
 
 The first-party experiment scripts are supplied for scholarly reproduction of the submitted work. Third-party model files remain governed by the license files shipped in their respective subdirectories. See `THIRD_PARTY_MODELS.md`.
+
+## Reproducing the results
+
+The archived out-of-sample forecasts and the scripts that regenerate every table and figure are
+deposited at Zenodo: **DOI `<fill: 10.5281/zenodo.XXXXXXX>`** (archive:
+`Leakage-Free-Asset-Return-Benchmark-replication.zip`).
+
+With that archive unpacked, the manuscript's results can be regenerated without retraining:
+
+```bash
+python analysis/make_tables.py --results predictions --robustness predictions/robustness --out tables
+python analysis/make_figures.py        # requires ANALYSIS_DIR=predictions/analysis
+```
+
+`analysis/make_tables.py` reads only the archived forecasts. It reproduces Table 4 to within
+5e-10, Table 5 to the reported precision and Table 6 exactly.
+
+`code/verify_provenance.py` re-executes the pipeline at sampled forecast origins and compares the
+result with the archived forecast, which is the provenance check reported in the response letter.
+
+### Seeds, budgets and stored configuration
+
+The runner takes three optional arguments; with none of them it reproduces the baseline exactly.
+
+```bash
+# baseline
+python code/final_experiment/run_experiment.py --asset CSI300 --model LSTM --mode full
+# seed replication
+python code/final_experiment/run_experiment.py --asset CSI300 --model LSTM --mode full --seed 7 --tag seed7
+# tuning-budget sensitivity
+python code/final_experiment/run_experiment.py --asset CSI300 --model Transformer --mode full --budget 60 --tag budget60
+```
+
+Every run writes one row per forecast origin, including the seed, the trial budget, the selected
+hyperparameters, the validation loss and the selected epoch. `RUN_MANIFEST.json` records the
+software versions, the protocol constants and the run window of the reported results.
+
