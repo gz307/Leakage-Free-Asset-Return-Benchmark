@@ -1,0 +1,69 @@
+{
+  "manuscript": "Do deep time-series architectures beat naive baselines? A leakage-free out-of-sample benchmark on asset returns",
+  "journal": "PeerJ Computer Science",
+  "code_repository": "https://github.com/gz307/Leakage-Free-Asset-Return-Benchmark",
+  "code_release_tag": "v1.1.0",
+  "code_commit": "the commit tagged v1.1.0 in the repository",
+  "archived_doi": "assigned by Zenodo; see the DOI on the record page",
+  "environment": {
+    "python": "3.10",
+    "pytorch": "2.1.2+cu118",
+    "cuda": "11.8",
+    "os": "Ubuntu 22.04",
+    "gpu": "1 x NVIDIA GeForce RTX 4090D (24 GB)",
+    "cpu": "15 vCPU Intel Xeon Platinum 8474C",
+    "memory": "80 GB",
+    "platform": "AutoDL container image (dependencies as listed in requirements.txt)"
+  },
+  "protocol": {
+    "window": 504,
+    "validation": 126,
+    "sequence_length": 60,
+    "horizon": 1,
+    "step": 1,
+    "retune_interval": 63,
+    "baseline_trials": 20,
+    "sensitivity_trials": 60,
+    "max_epochs": 50,
+    "early_stopping_patience": 10
+  },
+  "seeds": {
+    "baseline": 42,
+    "replication": [
+      7,
+      2024
+    ]
+  },
+  "runs": {
+    "baseline": {
+      "seed": 42,
+      "trials": 20,
+      "assets": 4,
+      "models": 5,
+      "forecast_origins": 13337
+    },
+    "seed_replication": {
+      "seeds": [
+        7,
+        2024
+      ],
+      "trials": 20,
+      "assets": 4,
+      "models": 5,
+      "forecast_origins": 26674
+    },
+    "budget_sensitivity": {
+      "seed": 42,
+      "trials": 60,
+      "assets": [
+        "CSI300",
+        "BTCUSD"
+      ],
+      "models": 5,
+      "forecast_origins": 14654
+    }
+  },
+  "replication_run_window_utc": "2026-10-19T07:14 to 2026-10-20T12:38",
+  "how_the_numbers_were_produced": "Each reported value in Tables 4-8 and Figures 1-6 is produced by the scripts in analysis/ from the archived forecast files in predictions/, without retraining. The forecasts themselves were produced by code/final_experiment/run_experiment.py at the tag above.",
+  "raw_data": "not redistributed; see data/DATA_MANIFEST.csv and data/README.md"
+}
