@@ -1,0 +1,5 @@
+asset,source,series_or_ticker,field,frequency,sample_start,sample_end,retrieval_date,rows,notes
+CSI300,Wind Financial Terminal,"CSI 300 index",Unadjusted close,daily,2010-01-04,2026-07-17,2026-07-20,4015,"First return uses the last close before the sample start"
+SP500,Yahoo Finance,^GSPC,Adjusted close,daily,2010-01-04,2026-07-17,2026-07-20,4162,"Adjusted for splits and dividends"
+CSI1000,Wind Financial Terminal,"CSI 1000 index",Unadjusted close,daily,2014-10-20,2026-07-17,2026-07-20,2856,"Index launched 2014-10-17"
+BTCUSD,Coin Metrics,btc / ReferenceRateUSD,Reference rate sampled at 00:00 UTC,daily,2014-09-18,2026-07-16,2026-07-20,4320,"File re-saved 2026-10-15; no new observations after 2026-07-16"
