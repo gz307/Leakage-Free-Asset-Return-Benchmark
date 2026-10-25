@@ -106,7 +106,7 @@ The first-party experiment scripts are supplied for scholarly reproduction of th
 ## Reproducing the results
 
 The archived out-of-sample forecasts and the scripts that regenerate every table and figure are
-deposited at Zenodo: **DOI `<fill: 10.5281/zenodo.XXXXXXX>`** (archive:
+deposited at Zenodo: **DOI 10.5281/zenodo.23614516** (archive:
 `Leakage-Free-Asset-Return-Benchmark-replication.zip`).
 
 With that archive unpacked, the manuscript's results can be regenerated without retraining:
